@@ -95,27 +95,35 @@ namespace ReDoc.Controllers
             //    CustomerIdNumber = "040022534",
             //    PercentsRate = 1.5
             //};
-            var destFile = RenderReport(agreement);
-            var agentInfo = GetAgentInfo();
-            var mailMessage = new MailMessage();
-            mailMessage.From = new MailAddress("mysmallfish@gmail.com", agentInfo.Name);
-            mailMessage.Sender = new MailAddress("mysmallfish@gmail.com", "Simple. ReDoc");
-            //mailMessage.To.Add(new MailAddress(agentInfo.Email, agentInfo.Name));
-            mailMessage.To.Add(new MailAddress("mysmallfish@gmail.com", "Simple. ReDoc"));
-            mailMessage.Subject = "הסכם לשירותי תיווך מאת - " + agentInfo.Name;
-            mailMessage.Body = "מצורף בזאת הסכם לשירותי תיווך";
-            var attachment = new Attachment(destFile, new ContentType("application/pdf"))
-                                 {
-                                     Name="הסכם שירותי תיווך - " +DateTime.Now.ToShortDateString() + ".pdf"
-                                 };
-            mailMessage.Attachments.Add(attachment);
+            try
+            {
+                var destFile = RenderReport(agreement);
+                var agentInfo = GetAgentInfo();
+                var mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress("mysmallfish@gmail.com", agentInfo.Name);
+                mailMessage.Sender = new MailAddress("mysmallfish@gmail.com", "Simple. ReDoc");
+                mailMessage.To.Add(new MailAddress(agentInfo.Email, agentInfo.Name));
+                mailMessage.To.Add(new MailAddress("mysmallfish@gmail.com", "Simple. ReDoc"));
+                mailMessage.Subject = "הסכם לשירותי תיווך מאת - " + agentInfo.Name;
+                mailMessage.Body = "מצורף בזאת הסכם לשירותי תיווך";
+                var attachment = new Attachment(destFile, new ContentType("application/pdf"))
+                                     {
+                                         Name = "הסכם שירותי תיווך - " + DateTime.Now.ToShortDateString() + ".pdf"
+                                     };
+                mailMessage.Attachments.Add(attachment);
 
-            var smtpClient = new SmtpClient("smtp.gmail.com", 587);
-            smtpClient.Credentials = new NetworkCredential("mysmallfish", "Smallfish00");
-            smtpClient.EnableSsl = true;
+                var smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.Credentials = new NetworkCredential("mysmallfish", "Smallfish00");
+                smtpClient.EnableSsl = true;
 
-            smtpClient.Send(mailMessage);
+                smtpClient.Send(mailMessage);
 
+            }
+            catch (Exception anyException)
+            {
+                System.IO.File.AppendAllLines(Server.MapPath("~/log.txt"),new[]{ anyException.ToString()});
+                return new HttpStatusCodeResult(500);
+            }
             return new HttpStatusCodeResult(200);
         }
 
@@ -151,7 +159,7 @@ namespace ReDoc.Controllers
         {
             var agentInfo = new AgentInfo()
                                 {
-                                    LogoUrl = "http://localhost:61196/ReDoc/Images/Guy.png",
+                                    LogoUrl = "http://me.5115.us/Safety/ReDoc/Images/Guy.png",
                                     LogoName = "ג.י.א שיווק נדל\"ן",
                                     Name = "גיא אברהמי",
                                     IdNumber = "25156175",
