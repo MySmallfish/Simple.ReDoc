@@ -83,6 +83,10 @@ namespace ReDoc.Controllers
             public double? AmountRate { get; set; }
             public string Signature { get; set; }
             public bool IsExclusive { get; set; }
+            public string PropertyType { get; set; }
+            public string PropertyCity { get; set; }
+            public string PropertyAddress { get; set; }
+            public string AgreementDate { get; set; }
         }
 
         public class AgentInfo
@@ -100,37 +104,10 @@ namespace ReDoc.Controllers
         [HttpPost]
         public ActionResult SendPropertyAgreement(AgentInfo agent, Agreement agreement)
         {
-            var x = agent;
-            //var agreement = new Agreement()
-            //{
-            //    CustomerName = "דוד אזולאי",
-            //    CustomerAddress = "השקמה 10, פתח תקווה",
-            //    CustomerPhone = "052-5233366",
-            //    CustomerIdNumber = "040022534",
-            //    PercentsRate = 1.5
-            //};
             try
             {
                 var destFile = RenderReport(agent, agreement);
-                var mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("mysmallfish@gmail.com", agent.FullName);
-                mailMessage.Sender = new MailAddress("mysmallfish@gmail.com", "Simple. ReDoc");
-                mailMessage.To.Add(new MailAddress(agent.Email, agent.FullName));
-                mailMessage.To.Add(new MailAddress("mysmallfish@gmail.com", "Simple. ReDoc"));
-                mailMessage.Subject = "הסכם לשירותי תיווך מאת - " + agent.FullName;
-                mailMessage.Body = "מצורף בזאת הסכם לשירותי תיווך";
-                var attachment = new Attachment(destFile, new ContentType("application/pdf"))
-                                     {
-                                         Name = "הסכם שירותי תיווך - " + DateTime.Now.ToShortDateString() + ".pdf"
-                                     };
-                mailMessage.Attachments.Add(attachment);
-
-                var smtpClient = new SmtpClient("smtp.gmail.com", 587);
-                smtpClient.Credentials = new NetworkCredential("mysmallfish", "Smallfish00");
-                smtpClient.EnableSsl = true;
-
-                smtpClient.Send(mailMessage);
-
+                SendEmail(agent, destFile);
             }
             catch (Exception anyException)
             {
@@ -138,6 +115,28 @@ namespace ReDoc.Controllers
                 return new HttpStatusCodeResult(500);
             }
             return new HttpStatusCodeResult(200);
+        }
+
+        private static void SendEmail(AgentInfo agent, string destFile)
+        {
+            var mailMessage = new MailMessage();
+            mailMessage.From = new MailAddress("redoc@simplesoftware.co.il", agent.FullName);
+            mailMessage.Sender = new MailAddress("redoc@simplesoftware.co.il", "Simple. ReDoc");
+            mailMessage.To.Add(new MailAddress(agent.Email, agent.FullName));
+            mailMessage.To.Add(new MailAddress("mysmallfish@gmail.com", "Simple. ReDoc"));
+            mailMessage.Subject = "הסכם לשירותי תיווך מאת - " + agent.FullName;
+            mailMessage.Body = "מצורף בזאת הסכם לשירותי תיווך";
+            var attachment = new Attachment(destFile, new ContentType("application/pdf"))
+                                 {
+                                     Name = "הסכם שירותי תיווך - " + DateTime.Now.ToShortDateString() + ".pdf"
+                                 };
+            mailMessage.Attachments.Add(attachment);
+
+            var smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            smtpClient.Credentials = new NetworkCredential("mysmallfish", "Smallfish00");
+            smtpClient.EnableSsl = true;
+
+            smtpClient.Send(mailMessage);
         }
 
         public ActionResult PropertyAgreement(int id)
@@ -162,7 +161,11 @@ namespace ReDoc.Controllers
 
             var parameters = CreateReportParameters(agent);
 
-            Render(designFile, new ReportDataSource[] {new ReportDataSource("Agreement", new[] {agreement})}, destFile,
+            Render(designFile, 
+                new ReportDataSource[]
+                    {
+                        new ReportDataSource("Agreement", new[] {agreement})
+                    }, destFile,
                    parameters);
             return destFile;
         }
