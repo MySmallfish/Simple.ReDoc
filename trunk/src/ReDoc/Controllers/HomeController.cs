@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Reporting.WebForms;
@@ -77,8 +79,10 @@ namespace ReDoc.Controllers
             public string UniqueId { get; set; }
             public string CustomerName { get; set; }
             public string CustomerAddress { get; set; }
+            public string CustomerCity { get; set; }
             public string CustomerPhone { get; set; }
             public string CustomerIdNumber { get; set; }
+            public string DealType { get; set; }
             public double? PercentsRate { get; set; }
             public double? AmountRate { get; set; }
             public string Signature { get; set; }
@@ -96,6 +100,7 @@ namespace ReDoc.Controllers
             public string FullName { get; set; }
             public string Email { get; set; }
             public string Address { get; set; }
+            public string City { get; set; }
             public string Phone { get; set; }
             public string IdNumber { get; set; }
             public string CertificateNumber { get; set; }
@@ -106,6 +111,16 @@ namespace ReDoc.Controllers
         {
             try
             {
+                var sigToImage = new SignatureToImage()
+                                     {
+                                         CanvasWidth = 200,
+                                         CanvasHeight =120
+                                     };
+                var bitmap = sigToImage.SigJsonToImage(agreement.Signature);
+                var signatureUrl = "~/Signatures/" + agreement.UniqueId + ".gif";
+                var targetPath = Server.MapPath(signatureUrl);
+                bitmap.Save(targetPath, ImageFormat.Gif);
+                agreement.Signature = FullyQualifiedApplicationPath + Url.Content(signatureUrl);
                 var destFile = RenderReport(agent, agreement);
                 SendEmail(agent, destFile);
             }
@@ -116,6 +131,39 @@ namespace ReDoc.Controllers
             }
             return new HttpStatusCodeResult(200);
         }
+
+        public static string FullyQualifiedApplicationPath
+        {
+            get
+            {
+                //Return variable declaration
+                var appPath = string.Empty;
+
+                //Getting the current context of HTTP request
+                var context = System.Web.HttpContext.Current;
+
+                //Checking the current context content
+                if (context != null)
+                {
+                    //Formatting the fully qualified website url/name
+                    appPath = string.Format("{0}://{1}{2}{3}",
+                      context.Request.Url.Scheme,
+                      context.Request.Url.Host,
+                      context.Request.Url.Port == 80
+                        ? string.Empty : ":" + context.Request.Url.Port,
+                      context.Request.ApplicationPath);
+
+                    if (!appPath.EndsWith("/"))
+                    {
+                        appPath += "/";
+                    }
+                }
+
+                return appPath;
+            }
+        }
+
+
 
         private static void SendEmail(AgentInfo agent, string destFile)
         {
