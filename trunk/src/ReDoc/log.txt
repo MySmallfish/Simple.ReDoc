@@ -22,3 +22,59 @@ System.ArgumentException: Invalid JSON primitive: ffff.
    at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
    at ReDoc.SignatureToImage.SigJsonToImage(String json) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\SignatureToImage.cs:line 67
    at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 117
+System.ArgumentException: Invalid JSON primitive: 5b.
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializePrimitiveObject()
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeDictionary(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeList(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.BasicDeserialize(String input, Int32 depthLimit, JavaScriptSerializer serializer)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
+   at ReDoc.SignatureToImage.SigJsonToImage(String json) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\SignatureToImage.cs:line 67
+   at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 119
+System.ArgumentException: Invalid JSON primitive: 5b.
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializePrimitiveObject()
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeDictionary(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeList(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.BasicDeserialize(String input, Int32 depthLimit, JavaScriptSerializer serializer)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
+   at ReDoc.SignatureToImage.SigJsonToImage(String json) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\SignatureToImage.cs:line 67
+   at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 119
+System.ArgumentException: Invalid JSON primitive: 5b.
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializePrimitiveObject()
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeDictionary(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeList(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.BasicDeserialize(String input, Int32 depthLimit, JavaScriptSerializer serializer)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
+   at ReDoc.SignatureToImage.SigJsonToImage(String json) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\SignatureToImage.cs:line 67
+   at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 119
+System.ArgumentException: Invalid JSON primitive: 5b.
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializePrimitiveObject()
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeDictionary(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeList(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.BasicDeserialize(String input, Int32 depthLimit, JavaScriptSerializer serializer)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
+   at ReDoc.SignatureToImage.SigJsonToImage(String json) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\SignatureToImage.cs:line 67
+   at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 119
+System.ArgumentException: Invalid JSON primitive: ĲCĲBıBĲCıCıBĦHıCĤQĦHĤUĤQĢXĤUędĢXĘfędėfĘfĖiėfĔpĖiĔqĔpēqĔqĐiēqĉdĐićaĉdąTćaăDąTĂBăDĂFĂBĂIĂFĂXĂIăcĂXĄfăcĄpĄfĄrĄpĄsĄrĄtĄs.
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializePrimitiveObject()
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.DeserializeInternal(Int32 depth)
+   at System.Web.Script.Serialization.JavaScriptObjectDeserializer.BasicDeserialize(String input, Int32 depthLimit, JavaScriptSerializer serializer)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize(JavaScriptSerializer serializer, String input, Type type, Int32 depthLimit)
+   at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
+   at ReDoc.SignatureToImage.SigJsonToImage(String json) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\SignatureToImage.cs:line 67
+   at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 119
