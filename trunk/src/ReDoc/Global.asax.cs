@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Simple;
 
 namespace ReDoc
 {
@@ -23,6 +24,7 @@ namespace ReDoc
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+            SystemMonitor.Info("Application started.");
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -33,7 +35,7 @@ namespace ReDoc
         private void EnableCrossDomainAjaxCall()
         {
             HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
-
+            SystemMonitor.Info("Request: {0}", HttpContext.Current.Request.HttpMethod);
             if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
             {
                 HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST");

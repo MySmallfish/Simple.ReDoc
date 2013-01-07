@@ -78,3 +78,49 @@ System.ArgumentException: Invalid JSON primitive: ĲCĲBıBĲCıCıBĦHıCĤQĦH
    at System.Web.Script.Serialization.JavaScriptSerializer.Deserialize[T](String input)
    at ReDoc.SignatureToImage.SigJsonToImage(String json) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\SignatureToImage.cs:line 67
    at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 119
+System.NotSupportedException: The given path's format is not supported.
+   at System.Security.Util.StringExpressionSet.CanonicalizePath(String path, Boolean needFullPath)
+   at System.Security.Util.StringExpressionSet.CreateListFromExpressions(String[] str, Boolean needFullPath)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at System.Web.HttpServerUtilityWrapper.MapPath(String path)
+   at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 128
+System.NotSupportedException: The given path's format is not supported.
+   at System.Security.Util.StringExpressionSet.CanonicalizePath(String path, Boolean needFullPath)
+   at System.Security.Util.StringExpressionSet.CreateListFromExpressions(String[] str, Boolean needFullPath)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at System.Web.HttpServerUtilityWrapper.MapPath(String path)
+   at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 128
+System.NotSupportedException: The given path's format is not supported.
+   at System.Security.Util.StringExpressionSet.CanonicalizePath(String path, Boolean needFullPath)
+   at System.Security.Util.StringExpressionSet.CreateListFromExpressions(String[] str, Boolean needFullPath)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String path)
+   at System.Web.InternalSecurityPermissions.PathDiscovery(String path)
+   at System.Web.HttpRequest.MapPath(VirtualPath virtualPath, VirtualPath baseVirtualDir, Boolean allowCrossAppMapping)
+   at System.Web.HttpServerUtility.MapPath(String path)
+   at System.Web.HttpServerUtilityWrapper.MapPath(String path)
+   at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 128
+System.NotSupportedException: The given path's format is not supported.
+   at System.Security.Util.StringExpressionSet.CanonicalizePath(String path, Boolean needFullPath)
+   at System.Security.Util.StringExpressionSet.CreateListFromExpressions(String[] str, Boolean needFullPath)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String[] pathList, Boolean checkForDuplicates, Boolean needFullPath)
+   at System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   at System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 128
+System.NotSupportedException: The given path's format is not supported.
+   at System.Security.Util.StringExpressionSet.CanonicalizePath(String path, Boolean needFullPath)
+   at System.Security.Util.StringExpressionSet.CreateListFromExpressions(String[] str, Boolean needFullPath)
+   at System.Security.Permissions.FileIOPermission.AddPathList(FileIOPermissionAccess access, AccessControlActions control, String[] pathListOrig, Boolean checkForDuplicates, Boolean needFullPath, Boolean copyPathList)
+   at System.Security.Permissions.FileIOPermission..ctor(FileIOPermissionAccess access, String[] pathList, Boolean checkForDuplicates, Boolean needFullPath)
+   at System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   at System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   at ReDoc.Controllers.HomeController.SendPropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 128

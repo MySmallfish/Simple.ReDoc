@@ -8,9 +8,12 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Reporting.WebForms;
+using Simple;
 
 namespace ReDoc.Controllers
 {
@@ -18,7 +21,17 @@ namespace ReDoc.Controllers
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            filterContext.RequestContext.HttpContext.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            HttpContext.Current.Response.Cache.SetNoStore();
+            SystemMonitor.Info("HERE!");
+            filterContext.RequestContext.HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "*");
+
+            string rqstMethod = HttpContext.Current.Request.Headers["Access-Control-Request-Method"];
+            if (rqstMethod == "OPTIONS" || rqstMethod == "POST")
+            {
+                filterContext.RequestContext.HttpContext.Response.AppendHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+                filterContext.RequestContext.HttpContext.Response.AppendHeader("Access-Control-Allow-Headers", "X-Requested-With, Accept, Access-Control-Allow-Origin, Content-Type");
+            }
             base.OnActionExecuting(filterContext);
         }
     }
@@ -81,6 +94,7 @@ namespace ReDoc.Controllers
             public string CustomerAddress { get; set; }
             public string CustomerCity { get; set; }
             public string CustomerPhone { get; set; }
+            public string CustomerEmail { get; set; }
             public string CustomerIdNumber { get; set; }
             public string DealType { get; set; }
             public double? PercentsRate { get; set; }
@@ -105,31 +119,94 @@ namespace ReDoc.Controllers
             public string IdNumber { get; set; }
             public string CertificateNumber { get; set; }
         }
-        
+
+
+        private static AgentInfo GetAgentInfo()
+        {
+            var agentInfo = new AgentInfo()
+            {
+                ImageUrl = "http://me.5115.us/Safety/ReDoc/Images/Guy.png",
+                LogoName = "ג.י.א שיווק נדל\"ן",
+                FullName = "גיא אברהמי",
+                IdNumber = "25156175",
+                CertificateNumber = "15980",
+                Address = "חבקוק 42, פתח תקווה",
+                Phone = "050-7116850",
+                Email = "guyal4@gmail.com"
+            };
+            return agentInfo;
+        }
+        public ActionResult PropertyAgreement(int id)
+        {
+            var agreement = new Agreement()
+            {
+                CustomerName = "דוד אזולאי",
+                CustomerAddress = "השקמה 10, פתח תקווה",
+                CustomerPhone = "052-5233366",
+                CustomerIdNumber = "040022534",
+                PercentsRate = 1.5
+            };
+            var destFile = RenderReport(GetAgentInfo(), agreement);
+
+            return File(destFile, "application/pdf");
+        }
+
+        private const string PropertyAgreementUrl = "~/PropertyAgreements";
+        private string GetPropertyAgreementsOutputPath()
+        {
+            return Server.MapPath(PropertyAgreementUrl);
+        }
+
         [HttpPost]
+        [AllowCrossSiteJsonAttribute]
         public ActionResult SendPropertyAgreement(AgentInfo agent, Agreement agreement)
         {
             try
             {
+                    SystemMonitor.Info("Sending property agreement from agent '{0}' to customer '{1}'.", agent.FullName, agreement.CustomerName);
                 var sigToImage = new SignatureToImage()
                                      {
                                          CanvasWidth = 200,
                                          CanvasHeight =120
                                      };
-                var bitmap = sigToImage.SigJsonToImage(agreement.Signature);
                 var signatureUrl = "~/Signatures/" + agreement.UniqueId + ".gif";
-                var targetPath = Server.MapPath(signatureUrl);
-                bitmap.Save(targetPath, ImageFormat.Gif);
-                agreement.Signature = FullyQualifiedApplicationPath + Url.Content(signatureUrl);
+                
+                CreateSignatureBitmap(agreement, sigToImage, signatureUrl);
+
+                agreement.Signature = "http://me.5115.us/redoc/Signatures/" + agreement.UniqueId + ".gif";//" + Url.Content(signatureUrl);
+
                 var destFile = RenderReport(agent, agreement);
-                SendEmail(agent, destFile);
+                var reportFilePath = string.Format("Agreement.{0}[{1}].pdf",
+                                                   DateTime.Now.ToString("dd-MM-yyyy HH-mm"), agreement.UniqueId);
+                reportFilePath = Path.Combine(GetPropertyAgreementsOutputPath(), reportFilePath);
+                System.IO.File.Copy(destFile, reportFilePath, true);
+
+                Task.Factory.StartNew(() =>
+                                          {
+                                              try
+                                              {
+                                                  SystemMonitor.Info("Sending Email to: {0}, {1}", agent.Email, agreement.CustomerEmail);
+                                                  SendEmail(agent, agreement, destFile);
+                                              }
+                                              catch (Exception anyException)
+                                              {
+                                                  SystemMonitor.Error(anyException, "Failed to send agreement by mail.");
+                                              }
+                                          });
             }
             catch (Exception anyException)
             {
-                System.IO.File.AppendAllLines(Server.MapPath("~/log.txt"),new[]{ anyException.ToString()});
+                SystemMonitor.Error(anyException, "Error Creating agreement report");
                 return new HttpStatusCodeResult(500);
             }
             return new HttpStatusCodeResult(200);
+        }
+
+        private void CreateSignatureBitmap(Agreement agreement, SignatureToImage sigToImage, string signatureUrl)
+        {
+            var bitmap = sigToImage.SigJsonToImage(agreement.Signature);
+            var targetPath = Server.MapPath(signatureUrl);
+            bitmap.Save(targetPath, ImageFormat.Gif);
         }
 
         public static string FullyQualifiedApplicationPath
@@ -165,13 +242,24 @@ namespace ReDoc.Controllers
 
 
 
-        private static void SendEmail(AgentInfo agent, string destFile)
+        private static void SendEmail(AgentInfo agent, Agreement agreement, string destFile)
         {
             var mailMessage = new MailMessage();
             mailMessage.From = new MailAddress("redoc@simplesoftware.co.il", agent.FullName);
             mailMessage.Sender = new MailAddress("redoc@simplesoftware.co.il", "Simple. ReDoc");
-            mailMessage.To.Add(new MailAddress(agent.Email, agent.FullName));
+            mailMessage.To.Add(new MailAddress(agent.Email, agent.FullName, Encoding.UTF8));
             mailMessage.To.Add(new MailAddress("mysmallfish@gmail.com", "Simple. ReDoc"));
+            if (!string.IsNullOrEmpty(agreement.CustomerEmail))
+            {
+                try
+                {
+                    mailMessage.To.Add(new MailAddress(agreement.CustomerEmail, agreement.CustomerName, Encoding.UTF8));
+                }
+                catch (Exception anyException)
+                {
+                    SystemMonitor.Error(anyException, "Error creating customer mail address");
+                }
+            }
             mailMessage.Subject = "הסכם לשירותי תיווך מאת - " + agent.FullName;
             mailMessage.Body = "מצורף בזאת הסכם לשירותי תיווך";
             var attachment = new Attachment(destFile, new ContentType("application/pdf"))
@@ -187,20 +275,7 @@ namespace ReDoc.Controllers
             smtpClient.Send(mailMessage);
         }
 
-        public ActionResult PropertyAgreement(int id)
-        {
-            var agreement = new Agreement()
-            {
-                CustomerName = "דוד אזולאי",
-                CustomerAddress = "השקמה 10, פתח תקווה",
-                CustomerPhone = "052-5233366",
-                CustomerIdNumber = "040022534",
-                PercentsRate = 1.5
-            };
-            var destFile = RenderReport(GetAgentInfo(), agreement);
 
-            return File(destFile, "application/pdf");
-        }
 
         private string RenderReport(AgentInfo agent, Agreement agreement)
         {
@@ -218,27 +293,21 @@ namespace ReDoc.Controllers
             return destFile;
         }
 
-        private static AgentInfo GetAgentInfo()
-        {
-            var agentInfo = new AgentInfo()
-                                {
-                                    ImageUrl = "http://me.5115.us/Safety/ReDoc/Images/Guy.png",
-                                    LogoName = "ג.י.א שיווק נדל\"ן",
-                                    FullName = "גיא אברהמי",
-                                    IdNumber = "25156175",
-                                    CertificateNumber = "15980",
-                                    Address = "חבקוק 42, פתח תקווה",
-                                    Phone = "050-7116850",
-                                    Email = "guyal4@gmail.com"
-                                };
-            return agentInfo;
-        }
 
+        //[Authorize]
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            
+            var path = new DirectoryInfo(GetPropertyAgreementsOutputPath());
+            var rx = new Regex(@"(.*)\[.*\]\.(.*)");
+            var propertyAgreements = path.GetFiles("*.pdf").OrderByDescending(file=>file.CreationTime).Select(file => new PropertyAgreementModel()
+                                                                               {
+                                                                                   Url = Url.Content(string.Format("{0}/{1}", PropertyAgreementUrl, file.Name)),
+                                                                                   Name = rx.Replace(file.Name, "$1.$2"),
+                                                                                   Date = file.CreationTime.ToString("dd/MM/yyyy HH:mm")
+                                                                               });
 
-            return View();
+            return View(propertyAgreements);
         }
 
         public ActionResult About()
