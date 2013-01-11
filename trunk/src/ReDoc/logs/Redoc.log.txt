@@ -13,3 +13,274 @@
 2012-12-22 18:06:49.5325 SimpleSite|Info| Request: GET
 2013-01-04 09:02:41.2578 SimpleSite|Info| Application started.
 2013-01-04 09:02:41.2908 SimpleSite|Info| Request: GET
+2013-01-11 01:08:22.6979 SimpleSite|Info| Application started.
+2013-01-11 01:08:22.7319 SimpleSite|Info| Request: GET
+2013-01-11 01:35:55.8694 SimpleSite|Info| Request: OPTIONS
+2013-01-11 01:35:55.9054 SimpleSite|Info| Request: POST
+2013-01-11 01:35:55.9834 SimpleSite|Info| HERE!
+2013-01-11 01:35:55.9894 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 01:35:56.0224 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/31240dd5-d522-4b0c-8940-be7c994f4a67.gif
+2013-01-11 01:35:58.2325 SimpleSite|Debug| Report generated, file name: tmpD03F.tmp.pdf
+2013-01-11 01:35:58.2345 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 01:36:03.6369 SimpleSite|Info| Request: POST
+2013-01-11 01:36:03.6369 SimpleSite|Info| Request: POST
+2013-01-11 01:36:03.6369 SimpleSite|Info| HERE!
+2013-01-11 01:36:03.6469 SimpleSite|Info| HERE!
+2013-01-11 01:36:03.6469 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 01:36:03.6469 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 01:36:03.6689 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/31a72aa6-c7ab-4db4-a98e-50fc81feb602.gif
+2013-01-11 01:36:03.6469 SimpleSite|Error| Error Creating agreement report
+Details:
+System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at ReDoc.Controllers.HomeController.CreateSignatureBitmap(Agreement agreement, SignatureToImage sigToImage, String signatureUrl) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 280
+   at ReDoc.Controllers.HomeController.CreateSignature(Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 224
+   at ReDoc.Controllers.HomeController.PropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 170
+2013-01-11 01:36:04.9099 SimpleSite|Debug| Report generated, file name: tmpEB8B.tmp.pdf
+2013-01-11 01:36:04.9099 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 01:42:25.7707 SimpleSite|Info| Request: POST
+2013-01-11 01:42:25.7707 SimpleSite|Info| HERE!
+2013-01-11 01:42:25.7707 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 01:42:25.7997 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/34696023-a334-4c27-9ff4-9028fb586df2.gif
+2013-01-11 01:42:26.8168 SimpleSite|Debug| Report generated, file name: tmpC048.tmp.pdf
+2013-01-11 01:42:26.8168 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 01:43:43.8952 SimpleSite|Info| Request: POST
+2013-01-11 01:43:43.8972 SimpleSite|Info| HERE!
+2013-01-11 01:43:43.8972 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 01:43:43.9232 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/7b53c0e5-4a9e-406d-8f90-352ba7f958cb.gif
+2013-01-11 01:43:44.9042 SimpleSite|Debug| Report generated, file name: tmpF167.tmp.pdf
+2013-01-11 01:43:44.9042 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 01:44:36.6872 SimpleSite|Info| Request: POST
+2013-01-11 01:44:36.6872 SimpleSite|Info| HERE!
+2013-01-11 01:44:36.6872 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 01:44:36.7132 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/85595c97-b1da-4eab-831f-dd93c657d084.gif
+2013-01-11 01:44:37.6903 SimpleSite|Debug| Report generated, file name: tmpBF9F.tmp.pdf
+2013-01-11 01:44:37.6903 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 01:45:47.7453 SimpleSite|Info| Request: POST
+2013-01-11 01:45:47.7453 SimpleSite|Info| HERE!
+2013-01-11 01:45:47.7453 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 01:45:47.7723 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/ea24bad1-6c3a-480c-ac9a-67bd365c0f3e.gif
+2013-01-11 01:45:48.7933 SimpleSite|Debug| Report generated, file name: tmpD532.tmp.pdf
+2013-01-11 01:45:48.7933 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 01:46:04.0712 SimpleSite|Info| Request: OPTIONS
+2013-01-11 01:46:04.0922 SimpleSite|Info| Request: POST
+2013-01-11 01:46:04.0952 SimpleSite|Info| Request: POST
+2013-01-11 01:46:04.0952 SimpleSite|Info| HERE!
+2013-01-11 01:46:04.0952 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 01:46:04.0952 SimpleSite|Info| HERE!
+2013-01-11 01:46:04.0952 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 01:46:04.1122 SimpleSite|Error| Error Creating agreement report
+Details:
+System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at ReDoc.Controllers.HomeController.CreateSignatureBitmap(Agreement agreement, SignatureToImage sigToImage, String signatureUrl) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 280
+   at ReDoc.Controllers.HomeController.CreateSignature(Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 224
+   at ReDoc.Controllers.HomeController.PropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 170
+2013-01-11 01:46:04.1122 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/1f03ee55-cc46-479c-b1aa-25aff32192ff.gif
+2013-01-11 01:46:05.0493 SimpleSite|Debug| Report generated, file name: tmp1520.tmp.pdf
+2013-01-11 01:46:05.0493 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 08:28:19.7107 SimpleSite|Info| Application started.
+2013-01-11 08:28:19.7267 SimpleSite|Info| Request: GET
+2013-01-11 08:28:44.1201 SimpleSite|Info| Request: OPTIONS
+2013-01-11 08:28:44.1961 SimpleSite|Info| Request: POST
+2013-01-11 08:28:44.2611 SimpleSite|Info| HERE!
+2013-01-11 08:28:44.2661 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 08:28:44.2971 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/f65a981f-53ce-4a1c-a722-9d0925ce4f77.gif
+2013-01-11 08:28:46.0542 SimpleSite|Debug| Report generated, file name: tmpBD23.tmp.pdf
+2013-01-11 08:28:46.0542 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:12:48.9122 SimpleSite|Info| Application started.
+2013-01-11 09:13:05.9952 SimpleSite|Info| Request: GET
+2013-01-11 09:15:28.2823 SimpleSite|Info| Request: OPTIONS
+2013-01-11 09:15:28.3633 SimpleSite|Info| Request: POST
+2013-01-11 09:15:28.4974 SimpleSite|Info| HERE!
+2013-01-11 09:15:28.4974 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:15:28.5464 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/f706c78c-9009-4d7a-a19e-d9186032de5b.gif
+2013-01-11 09:15:31.3395 SimpleSite|Debug| Report generated, file name: tmp5B2A.tmp.pdf
+2013-01-11 09:15:31.3395 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:15:35.0477 SimpleSite|Info| Request: POST
+2013-01-11 09:15:35.0477 SimpleSite|Info| Request: POST
+2013-01-11 09:15:35.0817 SimpleSite|Info| HERE!
+2013-01-11 09:15:35.1077 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:15:35.1077 SimpleSite|Info| HERE!
+2013-01-11 09:15:35.1107 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:15:35.1357 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/6352ad73-5cc1-4f2c-826a-294c6b1289be.gif
+2013-01-11 09:15:35.1567 SimpleSite|Error| Error Creating agreement report
+Details:
+System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at ReDoc.Controllers.HomeController.CreateSignatureBitmap(Agreement agreement, SignatureToImage sigToImage, String signatureUrl) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 281
+   at ReDoc.Controllers.HomeController.CreateSignature(Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 225
+   at ReDoc.Controllers.HomeController.PropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 170
+2013-01-11 09:15:36.7998 SimpleSite|Debug| Report generated, file name: tmp7417.tmp.pdf
+2013-01-11 09:15:36.7998 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:15:40.3630 SimpleSite|Info| Request: GET
+2013-01-11 09:18:12.5547 SimpleSite|Info| Request: POST
+2013-01-11 09:18:12.5637 SimpleSite|Info| HERE!
+2013-01-11 09:18:12.5637 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:18:12.5897 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/7c7dc6b1-0146-4245-b810-b07675380147.gif
+2013-01-11 09:18:14.3848 SimpleSite|Debug| Report generated, file name: tmpDB05.tmp.pdf
+2013-01-11 09:18:14.3868 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:18:16.3210 SimpleSite|Info| Request: POST
+2013-01-11 09:18:16.3210 SimpleSite|Info| Request: POST
+2013-01-11 09:18:16.3210 SimpleSite|Info| HERE!
+2013-01-11 09:18:16.3210 SimpleSite|Info| HERE!
+2013-01-11 09:18:16.3210 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:18:16.3210 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:18:16.3710 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/57f01474-360f-4429-a02c-5a502a98126b.gif
+2013-01-11 09:18:16.3840 SimpleSite|Error| Error Creating agreement report
+Details:
+System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at ReDoc.Controllers.HomeController.CreateSignatureBitmap(Agreement agreement, SignatureToImage sigToImage, String signatureUrl) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 281
+   at ReDoc.Controllers.HomeController.CreateSignature(Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 225
+   at ReDoc.Controllers.HomeController.PropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 170
+2013-01-11 09:18:18.0651 SimpleSite|Debug| Report generated, file name: tmpE9E5.tmp.pdf
+2013-01-11 09:18:18.0651 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:18:20.5702 SimpleSite|Info| Request: GET
+2013-01-11 09:19:38.2896 SimpleSite|Info| Request: POST
+2013-01-11 09:19:38.3566 SimpleSite|Info| HERE!
+2013-01-11 09:19:38.3566 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:19:38.3816 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/ea64af83-65ec-4c8c-9bd0-a9cf8b0d950c.gif
+2013-01-11 09:19:40.1097 SimpleSite|Debug| Report generated, file name: tmp2A2F.tmp.pdf
+2013-01-11 09:19:40.1097 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:19:44.3450 SimpleSite|Info| Request: POST
+2013-01-11 09:19:44.3450 SimpleSite|Info| Request: POST
+2013-01-11 09:19:44.4150 SimpleSite|Info| HERE!
+2013-01-11 09:19:44.4370 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:19:44.4490 SimpleSite|Info| HERE!
+2013-01-11 09:19:44.4490 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:19:44.4700 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/b343fb17-d952-4c6b-b775-3be7ed06e39a.gif
+2013-01-11 09:19:44.4910 SimpleSite|Error| Error Creating agreement report
+Details:
+System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at ReDoc.Controllers.HomeController.CreateSignatureBitmap(Agreement agreement, SignatureToImage sigToImage, String signatureUrl) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 281
+   at ReDoc.Controllers.HomeController.CreateSignature(Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 225
+   at ReDoc.Controllers.HomeController.PropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 170
+2013-01-11 09:19:46.1881 SimpleSite|Debug| Report generated, file name: tmp4204.tmp.pdf
+2013-01-11 09:19:46.1881 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:19:50.6583 SimpleSite|Info| Request: GET
+2013-01-11 09:20:11.8536 SimpleSite|Info| Request: POST
+2013-01-11 09:20:11.8846 SimpleSite|Info| HERE!
+2013-01-11 09:20:11.8866 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:20:11.9196 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/f0d69d94-353f-4e45-933b-63601eb549c4.gif
+2013-01-11 09:20:13.5827 SimpleSite|Debug| Report generated, file name: tmpAD36.tmp.pdf
+2013-01-11 09:20:13.5827 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:23:36.8583 SimpleSite|Info| Request: POST
+2013-01-11 09:23:36.8583 SimpleSite|Info| HERE!
+2013-01-11 09:23:36.8583 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:23:36.8923 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/b6549f93-e48b-4d27-b626-e9546c03a8f3.gif
+2013-01-11 09:23:38.6854 SimpleSite|Debug| Report generated, file name: tmpCDE0.tmp.pdf
+2013-01-11 09:23:38.6854 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:23:40.2315 SimpleSite|Info| Request: POST
+2013-01-11 09:23:40.2315 SimpleSite|Info| Request: POST
+2013-01-11 09:23:40.2315 SimpleSite|Info| HERE!
+2013-01-11 09:23:40.2415 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:23:40.2415 SimpleSite|Info| HERE!
+2013-01-11 09:23:40.2415 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:23:40.2825 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/9841a24f-975e-4bb6-9a9b-684c234d6561.gif
+2013-01-11 09:23:40.3205 SimpleSite|Error| Error Creating agreement report
+Details:
+System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at ReDoc.Controllers.HomeController.CreateSignatureBitmap(Agreement agreement, SignatureToImage sigToImage, String signatureUrl) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 281
+   at ReDoc.Controllers.HomeController.CreateSignature(Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 225
+   at ReDoc.Controllers.HomeController.PropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 170
+2013-01-11 09:23:42.0076 SimpleSite|Debug| Report generated, file name: tmpDB2A.tmp.pdf
+2013-01-11 09:23:42.0076 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:26:09.0860 SimpleSite|Info| Request: GET
+2013-01-11 09:28:41.9007 SimpleSite|Info| Request: OPTIONS
+2013-01-11 09:28:41.9337 SimpleSite|Info| Request: POST
+2013-01-11 09:28:41.9477 SimpleSite|Info| HERE!
+2013-01-11 09:28:41.9477 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:28:41.9757 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/88e7fa2b-9a33-4cf5-829e-b8155ad298cd.gif
+2013-01-11 09:28:43.8838 SimpleSite|Debug| Report generated, file name: tmp75A6.tmp.pdf
+2013-01-11 09:28:43.8838 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:28:45.8140 SimpleSite|Info| Request: POST
+2013-01-11 09:28:45.8170 SimpleSite|Info| Request: POST
+2013-01-11 09:28:45.8170 SimpleSite|Info| HERE!
+2013-01-11 09:28:45.8170 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:28:45.8170 SimpleSite|Info| HERE!
+2013-01-11 09:28:45.8170 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:28:45.8530 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/5fde5aec-8636-4626-b443-98f41376d042.gif
+2013-01-11 09:28:45.8640 SimpleSite|Error| Error Creating agreement report
+Details:
+System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at ReDoc.Controllers.HomeController.CreateSignatureBitmap(Agreement agreement, SignatureToImage sigToImage, String signatureUrl) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 281
+   at ReDoc.Controllers.HomeController.CreateSignature(Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 225
+   at ReDoc.Controllers.HomeController.PropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 170
+2013-01-11 09:28:47.0140 SimpleSite|Info| Request: GET
+2013-01-11 09:28:47.6761 SimpleSite|Debug| Report generated, file name: tmp84D3.tmp.pdf
+2013-01-11 09:28:47.6761 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:34:36.6390 SimpleSite|Info| Request: POST
+2013-01-11 09:34:36.6500 SimpleSite|Info| HERE!
+2013-01-11 09:34:36.6500 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:34:36.6770 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/082368b7-02b5-44a5-8b2b-2b8019ab8cd5.gif
+2013-01-11 09:34:38.4581 SimpleSite|Debug| Report generated, file name: tmpDF33.tmp.pdf
+2013-01-11 09:34:38.4581 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:34:42.6214 SimpleSite|Info| Request: POST
+2013-01-11 09:34:42.6214 SimpleSite|Info| Request: POST
+2013-01-11 09:34:42.6214 SimpleSite|Info| HERE!
+2013-01-11 09:34:42.6214 SimpleSite|Info| HERE!
+2013-01-11 09:34:42.6214 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:34:42.6214 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:34:42.6624 SimpleSite|Debug| Signature created, url: http://me.5115.us/redoc/Signatures/4e2ed273-5540-4ea8-b467-2a8b6edbaa0b.gif
+2013-01-11 09:34:42.6864 SimpleSite|Error| Error Creating agreement report
+Details:
+System.Runtime.InteropServices.ExternalException (0x80004005): A generic error occurred in GDI+.
+   at System.Drawing.Image.Save(String filename, ImageCodecInfo encoder, EncoderParameters encoderParams)
+   at System.Drawing.Image.Save(String filename, ImageFormat format)
+   at ReDoc.Controllers.HomeController.CreateSignatureBitmap(Agreement agreement, SignatureToImage sigToImage, String signatureUrl) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 281
+   at ReDoc.Controllers.HomeController.CreateSignature(Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 225
+   at ReDoc.Controllers.HomeController.PropertyAgreement(AgentInfo agent, Agreement agreement) in c:\Data\git\Simple.ReDoc\trunk\src\ReDoc\Controllers\HomeController.cs:line 170
+2013-01-11 09:34:44.7745 SimpleSite|Debug| Report generated, file name: tmpF6AA.tmp.pdf
+2013-01-11 09:34:44.7745 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:34:45.9726 SimpleSite|Info| Request: GET
+2013-01-11 09:34:49.4108 SimpleSite|Info| Request: GET
+2013-01-11 09:38:59.8611 SimpleSite|Info| Application started.
+2013-01-11 09:38:59.8891 SimpleSite|Info| Request: GET
+2013-01-11 09:55:50.8359 SimpleSite|Info| Request: OPTIONS
+2013-01-11 09:55:50.8879 SimpleSite|Info| Request: POST
+2013-01-11 09:55:51.1099 SimpleSite|Info| HERE!
+2013-01-11 09:55:51.1129 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:55:51.1439 SimpleSite|Debug| Signature created, url: /Output/Signatures/b68315ee-4635-46a0-966a-5a1d03ef7be5.gif
+2013-01-11 09:55:52.5390 SimpleSite|Debug| Report generated, file name: tmp51B6.tmp.pdf
+2013-01-11 09:55:52.5390 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:56:35.8005 SimpleSite|Info| Request: POST
+2013-01-11 09:56:35.8005 SimpleSite|Info| HERE!
+2013-01-11 09:56:35.8095 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:56:35.8295 SimpleSite|Debug| Signature created, url: /Output/Signatures/8938c60b-1a8b-4a71-b57a-bd121c4e54ea.gif
+2013-01-11 09:56:37.0075 SimpleSite|Debug| Report generated, file name: tmp1E.tmp.pdf
+2013-01-11 09:56:37.0095 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:57:08.0753 SimpleSite|Info| Request: POST
+2013-01-11 09:57:08.0753 SimpleSite|Info| HERE!
+2013-01-11 09:57:08.0843 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:57:08.1043 SimpleSite|Debug| Signature created, url: /Output/Signatures/8013e5a6-bf3c-48e4-ad64-33beb74179bb.gif
+2013-01-11 09:57:09.1454 SimpleSite|Debug| Report generated, file name: tmp7E34.tmp.pdf
+2013-01-11 09:57:09.1454 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:58:20.4835 SimpleSite|Info| Request: POST
+2013-01-11 09:58:20.4835 SimpleSite|Info| HERE!
+2013-01-11 09:58:20.4835 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:58:20.5145 SimpleSite|Debug| Signature created, url: /Output/Signatures/a8189fde-f36e-4c13-923c-fbaadf4aeb08.gif
+2013-01-11 09:58:21.5785 SimpleSite|Debug| Report generated, file name: tmp9915.tmp.pdf
+2013-01-11 09:58:21.5785 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:58:59.7627 SimpleSite|Info| Request: POST
+2013-01-11 09:58:59.7647 SimpleSite|Info| HERE!
+2013-01-11 09:58:59.7647 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:58:59.7927 SimpleSite|Debug| Signature created, url: /Output/Signatures/21a9e612-024b-45f1-a111-86fdab6b80b8.gif
+2013-01-11 09:59:00.9038 SimpleSite|Debug| Report generated, file name: tmp3287.tmp.pdf
+2013-01-11 09:59:00.9038 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-11 09:59:50.4746 SimpleSite|Info| Request: POST
+2013-01-11 09:59:50.4806 SimpleSite|Info| HERE!
+2013-01-11 09:59:50.4806 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-11 09:59:50.5026 SimpleSite|Debug| Signature created, url: /Output/Signatures/e5198c36-c8ef-41f5-b5a1-d001da39dc49.gif
+2013-01-11 09:59:51.5907 SimpleSite|Debug| Report generated, file name: tmpF894.tmp.pdf
+2013-01-11 09:59:51.5907 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 

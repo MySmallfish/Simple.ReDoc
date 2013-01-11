@@ -105,6 +105,8 @@ namespace ReDoc.Controllers
             public string PropertyCity { get; set; }
             public string PropertyAddress { get; set; }
             public string AgreementDate { get; set; }
+            public string FromDate { get; set; }
+            public string ToDate { get; set; }
         }
 
         public class AgentInfo
@@ -151,7 +153,7 @@ namespace ReDoc.Controllers
             return File(destFile, "application/pdf");
         }
 
-        private const string PropertyAgreementUrl = "~/PropertyAgreements";
+        private const string PropertyAgreementUrl = "~/Output/PropertyAgreements";
         private string GetPropertyAgreementsOutputPath()
         {
             return Server.MapPath(PropertyAgreementUrl);
@@ -159,40 +161,21 @@ namespace ReDoc.Controllers
 
         [HttpPost]
         [AllowCrossSiteJsonAttribute]
-        public ActionResult SendPropertyAgreement(AgentInfo agent, Agreement agreement)
+        public ActionResult PropertyAgreement(AgentInfo agent, Agreement agreement)
         {
             try
             {
-                    SystemMonitor.Info("Sending property agreement from agent '{0}' to customer '{1}'.", agent.FullName, agreement.CustomerName);
-                var sigToImage = new SignatureToImage()
-                                     {
-                                         CanvasWidth = 200,
-                                         CanvasHeight =120
-                                     };
-                var signatureUrl = "~/Signatures/" + agreement.UniqueId + ".gif";
+                SystemMonitor.Info("Sending property agreement from agent '{0}' to customer '{1}'.", agent.FullName, agreement.CustomerName);
                 
-                CreateSignatureBitmap(agreement, sigToImage, signatureUrl);
+                agreement.Signature = CreateSignature(agreement);
+                
+                SystemMonitor.Debug("Signature created, url: {0}", agreement.Signature);
 
-                agreement.Signature = "http://me.5115.us/redoc/Signatures/" + agreement.UniqueId + ".gif";//" + Url.Content(signatureUrl);
+                var destFile = GenerateReport(agent, agreement);
 
-                var destFile = RenderReport(agent, agreement);
-                var reportFilePath = string.Format("Agreement.{0}[{1}].pdf",
-                                                   DateTime.Now.ToString("dd-MM-yyyy HH-mm"), agreement.UniqueId);
-                reportFilePath = Path.Combine(GetPropertyAgreementsOutputPath(), reportFilePath);
-                System.IO.File.Copy(destFile, reportFilePath, true);
+                SystemMonitor.Debug("Report generated, file name: {0}", System.IO.Path.GetFileName(destFile));
 
-                Task.Factory.StartNew(() =>
-                                          {
-                                              try
-                                              {
-                                                  SystemMonitor.Info("Sending Email to: {0}, {1}", agent.Email, agreement.CustomerEmail);
-                                                  SendEmail(agent, agreement, destFile);
-                                              }
-                                              catch (Exception anyException)
-                                              {
-                                                  SystemMonitor.Error(anyException, "Failed to send agreement by mail.");
-                                              }
-                                          });
+                SendByMail(agent, agreement, destFile);
             }
             catch (Exception anyException)
             {
@@ -201,6 +184,50 @@ namespace ReDoc.Controllers
             }
             return new HttpStatusCodeResult(200);
         }
+
+        private string GenerateReport(AgentInfo agent, Agreement agreement)
+        {
+            var destFile = RenderReport(agent, agreement);
+            var reportFilePath = string.Format((agreement.IsExclusive ? "Exclusive-" : "") + "Agreement.{0}[{1}].pdf",
+                                               DateTime.Now.ToString("dd-MM-yyyy HH-mm"), agreement.UniqueId);
+            var outputPath = GetPropertyAgreementsOutputPath();
+            reportFilePath = Path.Combine(outputPath, reportFilePath);
+            System.IO.File.Copy(destFile, reportFilePath, true);
+            return destFile;
+        }
+
+        private static void SendByMail(AgentInfo agent, Agreement agreement, string destFile)
+        {
+            Task.Factory.StartNew(() =>
+                                      {
+                                          try
+                                          {
+                                              SystemMonitor.Info("Sending Email to: {0}, {1}", agent.Email,
+                                                                 agreement.CustomerEmail);
+                                              SendEmail(agent, agreement, destFile);
+                                          }
+                                          catch (Exception anyException)
+                                          {
+                                              SystemMonitor.Error(anyException, "Failed to send agreement by mail.");
+                                          }
+                                      });
+        }
+
+        private string CreateSignature(Agreement agreement)
+        {
+            var sigToImage = new SignatureToImage()
+                                 {
+                                     CanvasWidth = 200,
+                                     CanvasHeight = 120
+                                 };
+            var signatureUrl = "~/Output/Signatures/" + agreement.UniqueId + ".gif";
+
+            CreateSignatureBitmap(agreement, sigToImage, signatureUrl);
+            signatureUrl = Url.Content(signatureUrl);
+            agreement.Signature = signatureUrl;
+            return signatureUrl;
+        }
+
 
         private void CreateSignatureBitmap(Agreement agreement, SignatureToImage sigToImage, string signatureUrl)
         {
@@ -280,7 +307,7 @@ namespace ReDoc.Controllers
         private string RenderReport(AgentInfo agent, Agreement agreement)
         {
             var destFile = Path.GetTempFileName() + ".pdf";
-            var designFile = Server.MapPath("~/Static/Reports/PropertyAgreement.rdlc");
+            var designFile = Server.MapPath("~/Static/Reports/" + (agreement.IsExclusive ? "Exclusive":"") +"PropertyAgreement.rdlc");
 
             var parameters = CreateReportParameters(agent);
 

@@ -299,8 +299,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="PropertyAgreements\" />
-    <Folder Include="Signatures\" />
+    <Folder Include="Output\PropertyAgreements\" />
+    <Folder Include="Output\Signatures\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -310,7 +310,10 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Static\Reports\ExclusiveAgreement.rdlc">
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Static\Reports\ExclusivePropertyAgreement.rdlc">
+      <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

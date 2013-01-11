@@ -577,7 +577,7 @@
                           <Source>External</Source>
                           <Value>=Fields!Signature.Value</Value>
                           <Sizing>FitProportional</Sizing>
-                          <Top>17.62413cm</Top>
+                          <Top>17.71938cm</Top>
                           <Left>0.70956cm</Left>
                           <Height>2.09903cm</Height>
                           <Width>4.62619cm</Width>
@@ -2001,7 +2001,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value> שלא למסור לאיש כל מידע שנמסר לי ע"י המתווך אלא לשם ביצוע העסקה שבנדון.</Value>
+                                  <Value> שלא למסור לאיש כל מידע שנמסר לו ע"י המתווך אלא לשם ביצוע העסקה שבנדון.</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -2089,7 +2089,7 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox6</rd:DefaultName>
-                          <Top>19.12316cm</Top>
+                          <Top>19.31366cm</Top>
                           <Left>11.45615cm</Left>
                           <Height>0.6cm</Height>
                           <Width>3.89101cm</Width>
