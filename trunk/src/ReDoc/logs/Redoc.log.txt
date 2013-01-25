@@ -284,3 +284,80 @@ System.Runtime.InteropServices.ExternalException (0x80004005): A generic error o
 2013-01-11 09:59:50.5026 SimpleSite|Debug| Signature created, url: /Output/Signatures/e5198c36-c8ef-41f5-b5a1-d001da39dc49.gif
 2013-01-11 09:59:51.5907 SimpleSite|Debug| Report generated, file name: tmpF894.tmp.pdf
 2013-01-11 09:59:51.5907 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-14 15:46:50.2195 SimpleSite|Info| Application started.
+2013-01-14 15:46:50.2535 SimpleSite|Info| Request: GET
+2013-01-14 16:36:53.6443 SimpleSite|Info| Application started.
+2013-01-14 16:36:53.6723 SimpleSite|Info| Request: GET
+2013-01-14 16:52:00.8102 SimpleSite|Info| Application started.
+2013-01-14 16:52:00.8352 SimpleSite|Info| Request: GET
+2013-01-14 17:20:05.2025 SimpleSite|Info| Application started.
+2013-01-14 17:20:05.2185 SimpleSite|Info| Request: GET
+2013-01-14 17:23:12.5762 SimpleSite|Info| Application started.
+2013-01-14 17:23:12.5932 SimpleSite|Info| Request: GET
+2013-01-14 17:29:49.6589 SimpleSite|Info| Application started.
+2013-01-14 17:29:49.6839 SimpleSite|Info| Request: OPTIONS
+2013-01-14 17:29:49.6939 SimpleSite|Info| Request: POST
+2013-01-14 17:29:50.0900 SimpleSite|Info| HERE!
+2013-01-14 17:29:50.1130 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-14 17:29:50.1540 SimpleSite|Debug| Signature created, url: /Output/Signatures/83b6f267-38d6-46eb-866a-19f478864b6c.gif
+2013-01-14 17:29:51.7691 SimpleSite|Debug| Report generated, file name: tmp43B8.tmp.pdf
+2013-01-14 17:29:51.7691 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-14 17:29:58.4684 SimpleSite|Info| Request: POST
+2013-01-14 17:29:58.4744 SimpleSite|Info| HERE!
+2013-01-14 17:29:58.4744 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-14 17:29:58.4984 SimpleSite|Debug| Signature created, url: /Output/Signatures/4ef98280-77ee-49f8-bb07-45a963db3985.gif
+2013-01-14 17:29:59.4655 SimpleSite|Debug| Report generated, file name: tmp6405.tmp.pdf
+2013-01-14 17:29:59.4655 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-14 17:30:10.9671 SimpleSite|Info| Request: POST
+2013-01-14 17:30:10.9731 SimpleSite|Info| HERE!
+2013-01-14 17:30:10.9731 SimpleSite|Info| Sending property agreement from agent 'יאיר כהן' to customer 'משה לוי'.
+2013-01-14 17:30:10.9952 SimpleSite|Debug| Signature created, url: /Output/Signatures/ed4deda1-01ae-4507-8917-be7d0fc6c311.gif
+2013-01-14 17:30:12.0402 SimpleSite|Debug| Report generated, file name: tmp94D6.tmp.pdf
+2013-01-14 17:30:12.0402 SimpleSite|Info| Sending Email to: mysmallfish@gmail.com, 
+2013-01-14 17:40:13.7976 SimpleSite|Info| Application started.
+2013-01-14 17:40:13.8236 SimpleSite|Info| Request: GET
+2013-01-14 18:21:37.3117 SimpleSite|Info| Application started.
+2013-01-14 18:21:37.3277 SimpleSite|Info| Request: GET
+2013-01-21 20:13:49.5506 SimpleSite|Info| Application started.
+2013-01-21 20:13:49.5966 SimpleSite|Info| Request: GET
+2013-01-21 20:14:35.8832 SimpleSite|Info| Application started.
+2013-01-21 20:14:35.9092 SimpleSite|Info| Request: GET
+2013-01-23 01:58:17.6775 SimpleSite|Info| Application started.
+2013-01-23 01:58:17.7285 SimpleSite|Info| Request: GET
+2013-01-23 01:58:31.0573 SimpleSite|Info| Request: GET
+2013-01-23 02:04:11.6338 SimpleSite|Info| Application started.
+2013-01-23 02:04:11.6958 SimpleSite|Info| Request: GET
+2013-01-23 02:04:22.5204 SimpleSite|Info| Request: GET
+2013-01-23 02:06:06.6473 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.4534 SimpleSite|Info| Application started.
+2013-01-23 02:07:00.4684 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.4684 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.4684 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.4684 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.4684 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.8474 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.8474 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.8474 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.8474 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.8474 SimpleSite|Info| Request: GET
+2013-01-23 02:07:00.8474 SimpleSite|Info| Request: GET
+2013-01-23 02:07:32.8443 SimpleSite|Info| Application started.
+2013-01-23 02:07:32.8693 SimpleSite|Info| Request: GET
+2013-01-23 02:07:33.0873 SimpleSite|Trace| Executing Sql SELECT Id, Name FROM PropertyType WHERE TenantId = @TenantId
+2013-01-23 02:10:22.8230 SimpleSite|Info| Application started.
+2013-01-23 02:10:22.8480 SimpleSite|Info| Request: GET
+2013-01-23 02:10:23.0680 SimpleSite|Trace| Executing Sql SELECT Id, Name FROM PropertyType WHERE TenantId = @TenantId
+2013-01-23 21:51:53.0677 SimpleSite|Info| Application started.
+2013-01-23 21:51:53.1277 SimpleSite|Info| Request: GET
+2013-01-23 23:05:01.9027 SimpleSite|Info| Application started.
+2013-01-23 23:05:01.9267 SimpleSite|Info| Request: GET
+2013-01-23 23:05:19.6107 SimpleSite|Info| Request: GET
+2013-01-23 23:06:00.8061 SimpleSite|Info| Request: GET
+2013-01-23 23:07:38.7847 SimpleSite|Info| Request: GET
+2013-01-23 23:07:38.9517 SimpleSite|Trace| Executing Sql SELECT * FROM Customer WHERE TenantId = @TenantId
+2013-01-23 23:09:48.5041 SimpleSite|Info| Application started.
+2013-01-23 23:09:48.5191 SimpleSite|Info| Request: GET
+2013-01-23 23:10:06.3241 SimpleSite|Info| Request: GET
+2013-01-23 23:10:06.6541 SimpleSite|Trace| Executing Sql SELECT * FROM Customer WHERE TenantId = @TenantId
+2013-01-23 23:20:51.1890 SimpleSite|Info| Request: GET
+2013-01-23 23:20:51.1920 SimpleSite|Trace| Executing Sql SELECT * FROM Customer WHERE TenantId = @TenantId

@@ -47,6 +47,9 @@
     <Reference Include="Simple">
       <HintPath>..\..\lib\Simple.dll</HintPath>
     </Reference>
+    <Reference Include="Simple.Data">
+      <HintPath>..\..\..\..\..\wc\dev\Products\SimplyLog4\v4base\trunk\lib\Simple.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -167,14 +170,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\ServicesConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PropertyTypesController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="PropertyAgreementModel.cs" />
+    <Compile Include="ReDocDatabaseConnectionProvider.cs" />
     <Compile Include="Scripts\Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignatureToImage.cs" />
@@ -316,6 +323,16 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SimplyLog\SimplyLog\trunk\src\Simple.ReDoc.Contracts\Simple.ReDoc.Contracts.csproj">
+      <Project>{480e6e99-0c3c-4aef-b110-333e76cc7336}</Project>
+      <Name>Simple.ReDoc.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Simple.ReDoc.Data\Simple.ReDoc.Data.csproj">
+      <Project>{da13a95b-910a-427c-a88f-e5d84f725328}</Project>
+      <Name>Simple.ReDoc.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
