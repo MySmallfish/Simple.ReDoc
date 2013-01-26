@@ -76,6 +76,7 @@ namespace ReDoc.Data
             customer.Address = DataHelper.GetStringValueOrEmptyString(reader["Address"]);
             customer.City = DataHelper.GetStringValueOrEmptyString(reader["City"]);
             customer.LastModified = DataHelper.DateAsUtc(DataHelper.GetSafeValue<DateTime?>(reader["LastModified"]));
+            customer.CreatedAt = DataHelper.DateAsUtc(DataHelper.GetSafeValue<DateTime>(reader["CreatedAt"]));
             return customer;
         }
 

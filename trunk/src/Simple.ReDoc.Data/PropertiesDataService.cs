@@ -71,8 +71,14 @@ namespace Simple.ReDoc.Contracts
             property.UniqueId = (Guid)reader["UniqueId"];
             property.Address = DataHelper.GetStringValueOrEmptyString(reader["Address"]);
             property.City = DataHelper.GetStringValueOrEmptyString(reader["City"]);
+            property.CreatedAt = DataHelper.DateAsUtc(DataHelper.GetSafeValue<DateTime>(reader["CreatedAt"]));
             property.LastModified = DataHelper.DateAsUtc(DataHelper.GetSafeValue<DateTime?>(reader["LastModified"]));
-            // ...
+            property.Floor = DataHelper.GetStringValueOrEmptyString(reader["Floor"]);
+            property.Rooms = DataHelper.GetSafeValue(reader["Rooms"], 0);
+            property.PercentsRate = DataHelper.GetSafeValue(reader["PercentsRate"], default(double?));
+            property.AmountRate = DataHelper.GetSafeValue(reader["AmountRate"], default(double?));
+            property.RequestedPrice = DataHelper.GetSafeValue(reader["RequestedPrice"], default(double?));
+            property.Comments = DataHelper.GetStringValueOrEmptyString(reader["Comments"]);
             return property;
         }
 
@@ -104,29 +110,36 @@ namespace Simple.ReDoc.Contracts
 
         private static void AddCommonParameters(Property property, DbCommand command)
         {
+            DataHelper.AddParameterWithValue(command, "@SellerId", DbType.Int32, property.SellerId);
+            DataHelper.AddParameterWithValue(command, "@Type", DbType.Int32, property.PropertyTypeId);
             DataHelper.AddParameterWithValue(command, "@UserName", DbType.String, property.Username);
-            // ...
-            DataHelper.AddParameterWithValue(command, "@Address", DbType.String, property.Address);
-            DataHelper.AddParameterWithValue(command, "@City", DbType.String, property.City);
-            DataHelper.AddParameterWithValue(command, "@UniqueId", DbType.Guid, property.UniqueId);
+            DataHelper.AddParameterWithValue(command, "@RequestedPrice", DbType.Double, DataHelper.ValueOrDBNull(property.RequestedPrice));
+            DataHelper.AddParameterWithValue(command, "@AmountRate", DbType.Double, DataHelper.ValueOrDBNull(property.AmountRate));
+            DataHelper.AddParameterWithValue(command, "@PercentsRate", DbType.Double, DataHelper.ValueOrDBNull(property.PercentsRate));
+            DataHelper.AddParameterWithValue(command, "@Rooms", DbType.Int32, property.Rooms);
+            DataHelper.AddParameterWithValue(command, "@Comments", DbType.String, DataHelper.ValueOrDBNull(property.Comments));
+            DataHelper.AddParameterWithValue(command, "@Floor", DbType.String, DataHelper.ValueOrDBNull(property.Floor));
+            DataHelper.AddParameterWithValue(command, "@Address", DbType.String, DataHelper.ValueOrDBNull(property.Address));
+            DataHelper.AddParameterWithValue(command, "@City", DbType.String, DataHelper.ValueOrDBNull(property.City));
+            DataHelper.AddParameterWithValue(command, "@UniqueId", DbType.Guid, DataHelper.ValueOrDBNull(property.UniqueId));
             DataHelper.AddParameterWithValue(command, "@CreatedAt", DbType.DateTime, DateTime.UtcNow);
         }
 
         private string BuildInsertPropertySql()
         {
             var sql = new StringBuilder("INSERT INTO ");
-            sql.Append("[Customer] (");
+            sql.Append("[Property] (");
             sql.Append("TenantId");
             sql.Append(", ");
             sql.Append("Username");
             sql.Append(", ");
-            sql.Append("Name");
+            sql.Append("SellerId");
             sql.Append(", ");
-            sql.Append("IdNumber");
+            sql.Append("Type");
             sql.Append(", ");
-            sql.Append("Phone");
+            sql.Append("Rooms");
             sql.Append(", ");
-            sql.Append("Email");
+            sql.Append("Floor");
             sql.Append(", ");
             sql.Append("Address");
             sql.Append(", ");
@@ -135,18 +148,26 @@ namespace Simple.ReDoc.Contracts
             sql.Append("UniqueId");
             sql.Append(", ");
             sql.Append("CreatedAt");
+            sql.Append(", ");
+            sql.Append("PercentsRate");
+            sql.Append(", ");
+            sql.Append("AmountRate");
+            sql.Append(", ");
+            sql.Append("RequestedPrice");
+            sql.Append(", ");
+            sql.Append("Comments");
             sql.Append(") Values(");
             sql.Append("@TenantId");
             sql.Append(", ");
             sql.Append("@Username");
             sql.Append(", ");
-            sql.Append("@Name");
+            sql.Append("@SellerId");
             sql.Append(", ");
-            sql.Append("@IdNumber");
+            sql.Append("@Type");
             sql.Append(", ");
-            sql.Append("@Phone");
+            sql.Append("@Rooms");
             sql.Append(", ");
-            sql.Append("@Email");
+            sql.Append("@Floor");
             sql.Append(", ");
             sql.Append("@Address");
             sql.Append(", ");
@@ -155,6 +176,14 @@ namespace Simple.ReDoc.Contracts
             sql.Append("@UniqueId");
             sql.Append(", ");
             sql.Append("@CreatedAt");
+            sql.Append(", ");
+            sql.Append("@PercentsRate");
+            sql.Append(", ");
+            sql.Append("@AmountRate");
+            sql.Append(", ");
+            sql.Append("@RequestedPrice");
+            sql.Append(", ");
+            sql.Append("@Comments");
             sql.Append(")");
 
             return sql.ToString();
@@ -162,26 +191,26 @@ namespace Simple.ReDoc.Contracts
         private string BuildUpdatePropertySql()
         {
             var sql = new StringBuilder("UPDATE ");
-            sql.Append("[Customer] SET ");
+            sql.Append("[Property] SET ");
             sql.Append("Username");
             sql.Append(" = ");
             sql.Append("@Username");
             sql.Append(", ");
-            sql.Append("Name");
+            sql.Append("SellerId");
             sql.Append(" = ");
-            sql.Append("@Name");
+            sql.Append("@SellerId");
             sql.Append(", ");
-            sql.Append("IdNumber");
+            sql.Append("Type");
             sql.Append(" = ");
-            sql.Append("@IdNumber");
+            sql.Append("@Type");
             sql.Append(", ");
-            sql.Append("Phone");
+            sql.Append("Rooms");
             sql.Append(" = ");
-            sql.Append("@Phone");
+            sql.Append("@Rooms");
             sql.Append(", ");
-            sql.Append("Email");
+            sql.Append("Floor");
             sql.Append(" = ");
-            sql.Append("@Email");
+            sql.Append("@Floor");
             sql.Append(", ");
             sql.Append("Address");
             sql.Append(" = ");
@@ -198,6 +227,22 @@ namespace Simple.ReDoc.Contracts
             sql.Append("CreatedAt");
             sql.Append(" = ");
             sql.Append("@CreatedAt");
+            sql.Append(", ");
+            sql.Append("PercentsRate");
+            sql.Append(" = ");
+            sql.Append("@PercentsRate");
+            sql.Append(", ");
+            sql.Append("AmountRate");
+            sql.Append(" = ");
+            sql.Append("@AmountRate");
+            sql.Append(", ");
+            sql.Append("RequestedPrice");
+            sql.Append(" = ");
+            sql.Append("@RequestedPrice");
+            sql.Append(", ");
+            sql.Append("Comments");
+            sql.Append(" = ");
+            sql.Append("@Comments");
             sql.Append(" WHERE TenantId = @TenantId AND Id = @Id");
             return sql.ToString();
         }

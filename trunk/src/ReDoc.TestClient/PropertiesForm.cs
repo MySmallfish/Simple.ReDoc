@@ -63,7 +63,7 @@ namespace ReDoc.TestClient
         {
             if (PropertiesGrid.SelectedRows.Count > 0)
             {
-                var selected = (Guid)PropertiesGrid.SelectedRows[0].Cells[3].Value;
+                var selected = (Guid)PropertiesGrid.SelectedRows[0].Cells[1].Value;
                 UniqueId.Text = selected.ToString("N");
             }
         }
